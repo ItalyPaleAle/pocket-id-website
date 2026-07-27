@@ -54,3 +54,20 @@ Thanks to [Depot](https://depot.dev) for providing fast CI/CD pipelines for free
     <DepotLogo alt="Depot" className="h-20 w-auto rounded-md bg-background p-2 border border-border shadow" />
   </div>
 </div>
+
+### Snyk
+
+Thanks to [Snyk](https://snyk.io) for providing free licenses that help us keep Pocket ID secure.
+
+<div class="mt-8 mb-6 flex justify-center">
+  <a
+    href="https://snyk.io"
+    target="_blank"
+    rel="noreferrer"
+    class="inline-block">
+    <img
+      src="/img/sponsors/snyk-secure-developer-program.png"
+      alt="Snyk Secure Developer Program"
+      class="h-30" />
+  </a>
+</div>
