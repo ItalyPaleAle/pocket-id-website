@@ -15,6 +15,7 @@ Be cautious when modifying environment variables that are not recommended to cha
 | `ENCRYPTION_KEY`                      | `-`                                                                                                     | yes                   | Key used to encrypt data, including the private keys. It's recommended to use a random sequence of characters, for example generated with `openssl rand -base64 32`<br/>See the [Encryption keys](#encryption-keys) section below for more details.                                                                                                                       |
 | `ENCRYPTION_KEY_FILE`                 | `-`                                                                                                     | yes                   | Alternative to passing the encryption key with the `ENCRYPTION_KEY` variable, set to the path of a file containing a random encryption key. _This can be used with Docker secrets too._                                                                                                                                                                                   |
 | `TRUST_PROXY`                         | `false`                                                                                                 | yes                   | The reverse proxy IP addresses or CIDR ranges that Pocket ID should trust. The values `true` and `false` are also supported.<br/>See the [Reverse proxy settings](#reverse-proxy-settings) section below for more details.                                                                                                                                                |
+| `PROXY_PROTOCOL`                      | `false`                                                                                                 | yes                   | The reverse proxy IP addresses or CIDR ranges that are allowed to send [PROXY protocol](https://www.haproxy.org/download/2.9/doc/proxy-protocol.txt) headers. This is useful when a load balancer sends the original client address before the HTTP connection. See the [Reverse proxy settings](#reverse-proxy-settings) section below for more details.                 |
 | `TRUSTED_PLATFORM`                    | `-`                                                                                                     | yes                   | The trusted platform header for obtaining the client's real IP.<br/>See the [Reverse proxy settings](#reverse-proxy-settings) section below for more details.                                                                                                                                                                                                             |
 | `ALLOW_INSECURE_CALLBACK_URLS`        | `true`                                                                                                  | yes                   | Whether OIDC clients may use plain HTTP callback URLs on non-loopback hosts. For better security, set this to `false` unless one of your clients requires an HTTP callback URL. HTTP callback URLs on loopback hosts such as `localhost` remain allowed.                                                                                                                  |
 | `MAXMIND_LICENSE_KEY`                 | `-`                                                                                                     | yes                   | License Key for the GeoLite2 Database. The license key is required to retrieve the geographical location of IP addresses in the audit log. If the key is not provided, IP locations will be marked as "unknown." You can obtain a license key for free [here](https://www.maxmind.com/en/geolite2/signup).                                                                |
@@ -138,6 +139,17 @@ When `TRUSTED_PLATFORM` is set to a non-empty value, it configures [`gin.Engine.
 
 > [!TIP]
 > If you're using a CDN or platform that sets a specific header for the client IP, prefer using `TRUSTED_PLATFORM` over `TRUST_PROXY` as it provides a more direct and reliable way to obtain the client's real IP address.
+
+#### `PROXY_PROTOCOL`
+
+Set `PROXY_PROTOCOL` to a comma-separated list of IP addresses or CIDR ranges for the reverse proxies that are allowed to send PROXY protocol headers. Pocket ID uses the information from this header to get the original client IP address.
+
+- **Default**: `false`
+- **Recommended**: List only the proxies that connect directly to Pocket ID, for example `10.0.0.10,10.0.1.0/24`.
+- **`true`**: Accepts PROXY protocol headers from all IPv4 and IPv6 addresses. Use this only when Pocket ID cannot be reached without going through a trusted proxy.
+- **`false`**: Does not enable PROXY protocol.
+
+This setting requires a TCP listener and cannot be used together with `UNIX_SOCKET`. Use `TRUST_PROXY` when your reverse proxy passes the client IP in HTTP headers such as `X-Forwarded-For` instead.
 
 ## Overriding the UI configuration
 
