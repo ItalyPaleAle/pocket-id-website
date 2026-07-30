@@ -13,9 +13,9 @@ description: 'Release notes for pocket-id'
 ### Features
 
 - add support for proxy protocol ([807bd9e](https://github.com/pocket-id/pocket-id/commit/807bd9e037f201ba1d87c65387091a61c5e65e54) by @stonith404)
-- add declaritive user id configuration ([#1622](https://github.com/pocket-id/pocket-id/pull/1622) by @schnz)
+- add declarative user id configuration ([#1622](https://github.com/pocket-id/pocket-id/pull/1622) by @schnz)
 - migrate one-time and signup tokens to an actor ([#1611](https://github.com/pocket-id/pocket-id/pull/1611) by @ItalyPaleAle)
-- add support for declaritive client secret configuration ([#1619](https://github.com/pocket-id/pocket-id/pull/1619) by @schnz)
+- add support for declarative client secret configuration ([#1619](https://github.com/pocket-id/pocket-id/pull/1619) by @schnz)
 - add qr code alternative sign in method ([#1594](https://github.com/pocket-id/pocket-id/pull/1594) by @stonith404)
 - migrate app locks to Francis ([#1624](https://github.com/pocket-id/pocket-id/pull/1624) by @ItalyPaleAle)
 - drop user initiated one time access token login method ([0c27f73](https://github.com/pocket-id/pocket-id/commit/0c27f733b95de63855264327443cc65cf2ccefba) by @stonith404)
