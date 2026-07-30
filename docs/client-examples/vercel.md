@@ -16,7 +16,7 @@ The following placeholders are used below — replace them with your own values:
 | Placeholder | Replace with |
 | --- | --- |
 | `pocket-id.example.com` | The URL of your Pocket ID instance |
-| `<team_id>` | Your Vercel team ID (found in your team settings) |
+| `<team_slug>` | Your Vercel team slug, found in your team settings |
 
 > [!NOTE]
 > Your Pocket ID instance must be publicly reachable over HTTPS. Vercel connects to it for OIDC discovery and token exchange, and Pocket ID connects out to Vercel for SCIM provisioning.
@@ -49,7 +49,7 @@ Add your own Pocket ID account to both groups so you can test the connection.
 
 1. Create a new OIDC client named `Vercel`.
 2. Set the **Callback URL** to the **Login redirect URL** you copied from Vercel.
-3. Set the **Client launch URL** to `https://vercel.com/login?saml=<team_id>`. This makes the Vercel tile in Pocket ID's *My apps* open Vercel with your team slug pre-filled.
+3. Set the **Client launch URL** to `https://vercel.com/login?saml=<team_slug>`. This makes the Vercel tile in Pocket ID's *My apps* open Vercel with your team slug pre-filled.
 4. Enable **PKCE**.
 5. Save the client, then copy the generated **Client ID** and **Client Secret**.
 6. Open the client's **Allowed User Groups**, add the **Vercel Users** group, and save again so only members of that group can sign in.
