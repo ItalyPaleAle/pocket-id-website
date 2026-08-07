@@ -20,7 +20,7 @@ This method is useful when the user is signing in on a device which does not hav
 3. Scan the QR code with a device that has the user's passkey, or open the shown address and enter the code.
 4. Approve the request with the passkey on the other device.
 
-The request is only valid for a short time. The location and device information shown on the approval screen should be checked before approving it.
+The request is valid for 5 minutes. The location and device information shown on the approval screen should be checked before approving it.
 
 ## Login code from an administrator
 

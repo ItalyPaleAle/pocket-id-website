@@ -5,6 +5,8 @@ description: Learn how to authenticate OIDC clients in Pocket ID using client se
 
 In the context of OAuth2 / OpenID Connect, "Clients" refers to applications that request access to protected resources. In Pocket ID, they are configured in the _OIDC Clients_ section in the _Settings_ portal.
 
+Public clients can also provide their configuration through a [Client ID Metadata Document](/docs/guides/client-id-metadata-documents) instead of being registered manually.
+
 Typically OIDC Clients have a set of credentials that include:
 
 - Client ID: in Pocket ID, this is a UUID that identifies the client (application)
@@ -134,7 +136,7 @@ example-job:
   image: alpine:3.23.3
   id_tokens:
     GL_PIPELINE_TOKEN:
-      aud: "$POCKET_ID_URL"  # must match the `Audience` configured in Pocket ID.
+      aud: "$POCKET_ID_URL" # must match the `Audience` configured in Pocket ID.
   script:
     - apk update
     - apk add --no-cache curl jq
@@ -151,6 +153,7 @@ example-job:
 ```
 
 The only variables you need to define are:
+
 - `POCKET_ID_URL`: The base URL of your pocket ID instance, such as `https://pocketid.example.com`. In the job above this URL is also used as the Audience of the Federated Client Credential.
 - `POCKET_ID_CLIENT_ID`: the client ID of the OIDC Client configured in Pocket ID.
 
