@@ -55,7 +55,7 @@
         size="icon"
         class="hidden size-8 lg:flex"
       >
-        <Logo {isDark} class="size-5" />
+        <Logo {isDark} class="size-6" />
         <span class="sr-only">Pocket ID</span>
       </Button>
       <MainNav items={mainNavItems} class="hidden lg:flex" />
