@@ -125,7 +125,7 @@
             {/each}
             <div class="hidden h-10 w-px bg-border sm:block"></div>
             <img
-              src="/img/landing/oidc-certified.jpg"
+              src="/img/landing/oidc-certified.webp"
               alt="OIDC Certified Badge"
               class="h-10 mx-auto sm:mx-0"
             />
@@ -134,7 +134,7 @@
       </div>
       <img
         class="h-[300px] 3xl:h-[400px] hidden 2xl:block rounded-3xl"
-        src="/img/landing/login-screenshot.png"
+        src="/img/landing/login-screenshot.webp"
       />
     </div>
   </section>
@@ -157,7 +157,7 @@
       </div>
 
       <div class="grid gap-6 md:grid-cols-12">
-        <Card class="md:col-span-7 md:row-span-2">
+        <Card id="mcp-agents" class="scroll-mt-20 md:col-span-7 md:row-span-2">
           <CardHeader>
             <Bot class="mb-3 size-8" />
             <CardTitle class="text-2xl">AI agents and MCP servers</CardTitle>
@@ -168,11 +168,15 @@
             </CardDescription>
           </CardHeader>
           <CardContent class="flex flex-1 flex-col gap-6">
-            <img
-              src="/img/landing/mcp-auth-screenshot.png"
-              alt="MCP OAuth Demo"
-              class="rounded-lg w-full"
-            />
+            <iframe
+              class="aspect-video w-full rounded-lg border shadow-sm"
+              src="https://www.youtube-nocookie.com/embed/JjoXz2u5r3Y"
+              title="Protect your MCP server with Pocket ID"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
           </CardContent>
           <CardFooter>
             <Button
