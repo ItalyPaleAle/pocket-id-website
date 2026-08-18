@@ -34,7 +34,7 @@ The frontend asks Pocket ID for an access token for the Orders API. The token sa
 4. Enter a unique resource, such as `https://api.orders.example.com`.
 5. Save the API.
 
-The resource is the permanent identifier for your API. It usually looks like a URL, but it does not need to be a page that exists. Choose it carefully because it cannot be changed later.
+The resource is the permanent identifier for your API. It usually looks like a URL, but it does not need to be a page that exists. Choose it carefully because it cannot be changed later. Pocket ID removes trailing slashes, so `https://api.orders.example.com` and `https://api.orders.example.com/` identify the same resource. Issued tokens use the version without the trailing slash in their `aud` claim.
 
 ## Add permissions
 
@@ -60,6 +60,18 @@ There are two access types:
 - **Client access (M2M)**: the client calls the API as itself, without a user. This is useful for background jobs and server-to-server integrations.
 
 Public clients cannot use client access because they cannot safely keep a client secret.
+
+## Allow metadata-document clients to use the API
+
+You can grant user-delegated access to every client registered through a [Client ID Metadata Document](/docs/guides/client-id-metadata-documents):
+
+1. Open **Settings > APIs** and select the API.
+2. Under **API access**, select **Metadata document clients**.
+3. Enable **Allow all metadata document clients**.
+4. Select the permissions these clients may request.
+5. Save the API.
+
+The grant applies to current and future metadata-document clients. It does not grant client access (M2M), because these clients are public. Manage this API-wide grant on the API rather than on an individual client.
 
 ## Request an access token for a user
 

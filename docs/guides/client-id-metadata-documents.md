@@ -54,3 +54,14 @@ The client sends the document URL as the `client_id` in its OAuth requests. Pock
 Pocket ID follows the document's HTTP caching headers. Without an explicit cache lifetime, it refreshes the document after one hour; the maximum cache lifetime is 24 hours. Responses with `Cache-Control: no-store` cannot be used because Pocket ID must persist the resolved client.
 
 Use **Refresh** in the OIDC client list to fetch a document immediately. Fields supplied by the document are read-only in Pocket ID, while local policies such as allowed user groups, API access, and token lifetimes remain configurable.
+
+## Grant API access
+
+An administrator can grant an API to every current and future metadata-document client:
+
+1. Open **Settings > APIs** and select the API.
+2. Under **API access**, select **Metadata document clients**.
+3. Enable access and select the permissions that these clients may request.
+4. Save the API.
+
+This grants user-delegated access only. Metadata-document clients are public clients and cannot use client access (M2M). See [APIs and Permissions](/docs/guides/apis) for the complete API setup and token request flow.
