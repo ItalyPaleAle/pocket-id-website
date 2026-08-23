@@ -77,7 +77,7 @@ When using **SQLite**, the connection string is the path to the SQLite database 
 >
 > If you absolutely must, some users have found that modifying the connection string `DB_CONNECTION_STRING` to disable journaling (setting `_journal_mode=DELETE`) and limiting to one concurrent connection (`_maxconn=1`) may help. However, treat these as experimental and not guaranteed to succeed. This scenario continues to be unsupported by Pocket ID, and maintainers will not be able to assist with problems. You should also make sure to have recurring backups of your database.
 >
-> Pocket ID will detect if the SQLite database is stored on a networked filesystem and will show a persistent warning in the admin UI. If you're aware of the risks and want to suppress it, set `DISMISS_SQLITE_STORAGE_WARNING=I understand that my database can get corrupted and I will not receive support`
+> Pocket ID will detect if the SQLite database is stored on a networked filesystem and will show a persistent warning in the admin UI. If you're aware of the risks and want to suppress it, set `DISMISS_SQLITE_STORAGE_WARNING=I accept the risks`
 >
 > (Note that this limitation does not apply to block devices mounted from a SAN via iSCSI or a similar protocol, and formatted with a standard filesystem like Ext4 or XFS, which remain supported natively)
 
